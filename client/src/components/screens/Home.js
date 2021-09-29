@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const Home = () => {
   const [data, setData] = useState([]);
   const [comment, setComment] = useState("");
-  const { state, dispatch } = useContext(UserContext);
+  const { state } = useContext(UserContext);
   useEffect(() => {
     fetch("/allpost", {
       headers: {
@@ -32,7 +32,7 @@ const Home = () => {
       .then((res) => res.json())
       .then((result) => {
         const newData = data.map((item) => {
-          if (item._id == result._id) {
+          if (item._id === result._id) {
             result.postedBy = item.postedBy;
             result.comments = item.comments;
             return result;
@@ -60,7 +60,7 @@ const Home = () => {
       .then((res) => res.json())
       .then((result) => {
         const newData = data.map((item) => {
-          if (item._id == result._id) {
+          if (item._id === result._id) {
             result.postedBy = item.postedBy;
             result.comments = item.comments;
             return result;
@@ -91,7 +91,7 @@ const Home = () => {
       .then((result) => {
         console.log(result);
         const newData = data.map((item) => {
-          if (item._id == result._id) {
+          if (item._id === result._id) {
             return result;
           } else {
             return item;
@@ -135,7 +135,7 @@ const Home = () => {
               >
                 {item.postedBy.name}
               </Link>{" "}
-              {item.postedBy._id == state._id && (
+              {item.postedBy._id === state._id && (
                 <i
                   className="material-icons"
                   style={{
@@ -148,7 +148,7 @@ const Home = () => {
               )}
             </h5>
             <div className="card-image">
-              <img src={item.photo} />
+              <img src={item.photo} alt="img" />
             </div>
             <div className="card-content">
               {/* <i className="material-icons" style={{ color: "red" }}>

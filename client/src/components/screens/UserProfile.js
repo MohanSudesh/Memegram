@@ -17,8 +17,6 @@ const Profile = () => {
     })
       .then((res) => res.json())
       .then((result) => {
-        //console.log(result)
-
         setProfile(result);
       });
   }, []);
@@ -74,7 +72,7 @@ const Profile = () => {
 
         setProfile((prevState) => {
           const newFollower = prevState.user.followers.filter(
-            (item) => item != data._id
+            (item) => item !== data._id
           );
           return {
             ...prevState,

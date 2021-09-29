@@ -4,7 +4,6 @@ import { useHistory } from "react-router-dom";
 const CretePost = () => {
   const history = useHistory();
   const [title, setTitle] = useState("");
-  const [body, setBody] = useState("");
   const [image, setImage] = useState("");
   const [url, setUrl] = useState("");
   useEffect(() => {
@@ -17,7 +16,6 @@ const CretePost = () => {
         },
         body: JSON.stringify({
           title,
-          body,
           pic: url,
         }),
       })

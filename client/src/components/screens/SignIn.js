@@ -3,7 +3,7 @@ import { Link, useHistory } from "react-router-dom";
 import { UserContext } from "../../App";
 import M from "materialize-css";
 const SignIn = () => {
-  const { state, dispatch } = useContext(UserContext);
+  const { dispatch } = useContext(UserContext);
   const history = useHistory();
   const [password, setPasword] = useState("");
   const [email, setEmail] = useState("");
