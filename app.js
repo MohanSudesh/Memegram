@@ -1,21 +1,22 @@
 const express = require("express");
 const app = express();
-const mongoose = require("mongoose");
+// const mongoose = require("mongoose");
+require("./db/mongoose");
 const PORT = process.env.PORT || 5000;
-const { MONGOURI } = require("./config/keys");
+// const { MONGOURI } = require("./config/keys");
 
-mongoose.connect(MONGOURI, {
-  useNewUrlParser: true,
-  useCreateIndex: true,
-  useFindAndModify: false,
-  useUnifiedTopology: true,
-});
-mongoose.connection.on("connected", () => {
-  console.log("DataBase Connected");
-});
-mongoose.connection.on("error", (err) => {
-  console.log("err connecting", err);
-});
+// mongoose.connect(MONGOURI, {
+//   useNewUrlParser: true,
+//   useCreateIndex: true,
+//   useFindAndModify: false,
+//   useUnifiedTopology: true,
+// });
+// mongoose.connection.on("connected", () => {
+//   console.log("DataBase Connected");
+// });
+// mongoose.connection.on("error", (err) => {
+//   console.log("err connecting", err);
+// });
 
 require("./models/user");
 require("./models/post");
@@ -25,7 +26,7 @@ app.use(require("./routes/auth"));
 app.use(require("./routes/post"));
 app.use(require("./routes/user"));
 
-if (process.env.NODE_ENV == "production") {
+if (process.env.NODE_ENV === "production") {
   app.use(express.static("./client/build"));
   const path = require("path");
   app.get("*", (req, res) => {
