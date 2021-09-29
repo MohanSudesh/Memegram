@@ -145,7 +145,7 @@ const Home = () => {
               )}
             </h5>
             <div className="card-image">
-              <img src={item.photo} />
+              <img src={item.photo} alt="img" />
             </div>
             <div className="card-content">
               <i className="material-icons" style={{ color: "red" }}>

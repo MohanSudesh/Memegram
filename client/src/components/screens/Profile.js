@@ -76,6 +76,7 @@ const Profile = () => {
             <img
               style={{ width: "160px", height: "160px", borderRadius: "80px" }}
               src={state ? state.pic : "loading"}
+              alt="img"
             />
           </div>
           <div>

@@ -105,6 +105,7 @@ const Profile = () => {
                   borderRadius: "80px",
                 }}
                 src={userProfile.user.pic}
+                alt="img"
               />
             </div>
             <div>
